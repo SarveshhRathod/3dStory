@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white overflow-hidden;
+    cursor: none; /* Custom cursor ke liye */
+  }
+}
+
+/* Cinematic Shadow for the "Awesome" look */
+.cinematic-text-shadow {
+  text-shadow: 0px 10px 30px rgba(0, 0, 0, 1), 
+               0px 20px 60px rgba(0, 0, 0, 0.8),
+               0px 0px 100px rgba(0, 0, 0, 0.5);
+}
+
+/* Snap Scrolling */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+.snap-container::-webkit-scrollbar { display: none; }
+
+/* Film Grain Texture */
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  30% { transform:translate(7%, -25%) }
+  50% { transform:translate(-15%, 10%) }
+  70% { transform:translate(0%, 15%) }
+  90% { transform:translate(-10%, 10%) }
+}
+.animate-grain { animation: grain 8s steps(10) infinite; }
+
+/* Ken Burns (Nature Zoom) Effect */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+.animate-kenburns { animation: kenburns 30s ease-in-out infinite alternate; }
